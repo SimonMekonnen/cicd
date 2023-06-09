@@ -14,7 +14,7 @@ jobs:
         with:
           channel: "stable"
       - run: echo $PWD
-      - run: cd rideshare
+      - run: cd cicd
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
