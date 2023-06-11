@@ -13,9 +13,8 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
-      - run: echo $PWD
-      - run: cd cicd
       - run: flutter pub get
+      - working-directory: cicd
       - run: flutter analyze
       - run: flutter test
   build_appbundle:
