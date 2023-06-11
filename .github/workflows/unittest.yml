@@ -60,3 +60,19 @@ jobs:
         run: |
           cd cicd
           flutter build appbundle
+  deploy_firebase:
+    name: Deploy to Firebase Hosting
+    needs: [build_appbundle]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Firebase CLI
+        uses: firebase/actions/setup-firebase@v1
+        with:
+          version: "9.x"
+      - name: Authenticate with Firebase
+        run: firebase login:ci --no-localhost --interactive
+
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
