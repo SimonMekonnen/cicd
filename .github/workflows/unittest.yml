@@ -33,33 +33,33 @@ jobs:
           cd cicd
           flutter test
 
-#   build_appbundle:
-#     name: Build Flutter (Android)
-#     needs: [flutter_test]
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
+  #   build_appbundle:
+  #     name: Build Flutter (Android)
+  #     needs: [flutter_test]
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - name: Checkout repository
+  #         uses: actions/checkout@v2
 
-#       - name: Set up Flutter
-#         uses: subosito/flutter-action@v1
-#         with:
-#           channel: "stable"
+  #       - name: Set up Flutter
+  #         uses: subosito/flutter-action@v1
+  #         with:
+  #           channel: "stable"
 
-#       - name: Install dependencies
-#         run: |
-#           cd cicd
-#           flutter pub get
+  #       - name: Install dependencies
+  #         run: |
+  #           cd cicd
+  #           flutter pub get
 
-#       - name: Clean build artifacts
-#         run: |
-#           cd cicd
-#           flutter clean
+  #       - name: Clean build artifacts
+  #         run: |
+  #           cd cicd
+  #           flutter clean
 
-#       - name: Build app bundle
-#         run: |
-#           cd cicd
-#           flutter build appbundle
+  #       - name: Build app bundle
+  #         run: |
+  #           cd cicd
+  #           flutter build appbundle
   deploy_firebase:
     name: Deploy to Firebase Hosting
     needs: [flutter_test]
